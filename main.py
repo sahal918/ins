@@ -1,46 +1,61 @@
+# Import necessary libraries
 import time
 
-def login(username, password):
-    # Code to login to Instagram
-    pass
-
+# Function to follow a user
 def follow_user(username):
-    # Code to follow a user on Instagram
-    pass
+    print(f"Following {username}...")
+    # Code to follow the user
 
+# Function to unfollow a user
 def unfollow_user(username):
-    # Code to unfollow a user on Instagram
-    pass
+    print(f"Unfollowing {username}...")
+    # Code to unfollow the user
 
+# Function to calculate remaining time
+def calculate_remaining_time(seconds):
+    minutes = seconds // 60
+    seconds = seconds % 60
+    print(f"Remaining time: {minutes} minutes {seconds} seconds")
+
+# Main program
 def main():
+    # Get user credentials
+    username = input("Enter your Instagram username: ")
+    password = input("Enter your Instagram password: ")
+
     # Login to Instagram
-    login("your_username", "your_password")
-    
+    print("Logging in...")
+    # Code to login
+
     # List of usernames to follow
-    usernames = ["user1", "user2", "user3"]
-    
-    # Follow users one by one with a gap of 30 seconds
+    usernames = input("Enter the usernames to follow (separated by commas): ").split(",")
+
+    # Follow users
     for username in usernames:
         follow_user(username)
-        print("Followed", username)
         time.sleep(30)
-    
+        calculate_remaining_time(180)
+
     # Wait for 3 minutes
+    print("Waiting for 3 minutes...")
     time.sleep(180)
-    
-    # Unfollow users one by one with a gap of 15 seconds
+    calculate_remaining_time(180)
+
+    # Unfollow users
     for username in usernames:
         unfollow_user(username)
-        print("Unfollowed", username)
         time.sleep(15)
-    
-    # Sleep for 5 to 10 minutes
+        calculate_remaining_time(90)
+
+    # Sleep for 5-10 minutes
     sleep_time = random.randint(300, 600)
-    print("Sleeping for", sleep_time, "seconds")
+    print(f"Sleeping for {sleep_time} seconds...")
     time.sleep(sleep_time)
-    
+    calculate_remaining_time(sleep_time)
+
     # Repeat the process
     main()
 
+# Run the program
 if __name__ == "__main__":
     main()
